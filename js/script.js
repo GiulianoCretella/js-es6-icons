@@ -124,3 +124,14 @@ const icon = [
 ];
 // Milestone 1
 // Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
+const container = document.querySelector('.container');
+icon.forEach((element)=>{
+   const cards = document.createElement('div');
+   cards.setAttribute('class','card');
+   cards.innerHTML=`
+   <i class="${element.family} ${element.prefix}${element.name}"></i>
+   <p>${element.name}</p>
+   `;
+
+   container.append(cards)
+})
