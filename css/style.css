@@ -7,9 +7,11 @@
     border:1px solid black;
 }
 header{
+    height: 100px;
     width: 100%;
 }
 .header-top{
+    height: 60%;
     display: flex;
     width: 90%;
     margin: 0 auto;
@@ -18,6 +20,7 @@ header{
     padding: 5px;
 }
 .header-top span{
+    height: 40%;
     font-size: 30px;
     margin-left: 10px;
 }
@@ -36,8 +39,10 @@ header{
 
 /* main  */
 main{
+    height: calc(100vh - 100px);
     width: 100%;
     background-color: #DDDDDD;
+    overflow-y: auto;
 }
 .container{
     margin: 0 auto;
