@@ -127,6 +127,18 @@ const icon = [
 // Milestone 2
 // Ciascuna icona ha una proprietà "color": utilizzare questa proprietà per visualizzare le icone del colore corrispondente.dell'icona e l'icona stessa.
 const container = document.querySelector('.container');
+container.innerHTML ='';
+icon.forEach((element)=>{
+	container.innerHTML+='';
+	const cards = document.createElement('div');
+	cards.setAttribute('class','card');
+	cards.innerHTML=`
+	<i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i>
+	<p>${element.name}</p>
+	`;
+	container.append(cards)
+ })
+
 // Milestone 3
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 let selezione = document.getElementById("selezione");
@@ -137,7 +149,7 @@ function selezionaIcone(){
     console.log(opzione)
 	switch(opzione){
 		case 'all': default:
-			container.innerHTML ='';
+				container.innerHTML ='';
 			icon.forEach((element)=>{
 				container.innerHTML+='';
 				const cards = document.createElement('div');
