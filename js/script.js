@@ -127,25 +127,71 @@ const icon = [
 // Milestone 2
 // Ciascuna icona ha una proprietà "color": utilizzare questa proprietà per visualizzare le icone del colore corrispondente.dell'icona e l'icona stessa.
 const container = document.querySelector('.container');
-icon.forEach((element)=>{
-   const cards = document.createElement('div');
-   cards.setAttribute('class','card');
-   cards.innerHTML=`
-   <i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i>
-   <p>${element.name}</p>
-   `;
 
-   container.append(cards)
-})
 // Milestone 3
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 let selezione = document.getElementById("selezione");
 
 function selezionaIcone(){
+    container.innerHTML='';
     let indiceOpzione = selezione.selectedIndex;
     let opzione =selezione.options[indiceOpzione].value;
     console.log(opzione)
+    if(opzione === 'animals'){
+        const animals = icon.filter((element)=> element.type ==='animal');
+        console.log(animals)
+        animals.forEach((element)=>{
+            const cards = document.createElement('div');
+            cards.setAttribute('class','card');
+            cards.innerHTML=`
+            <i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i>
+            <p>${element.name}</p>
+            `;
+            container.append(cards)
+         })
+    }else if(opzione === 'vegetables'){
+        container.innerHTML='';
+        const vegetables = icon.filter((element)=> element.type ==='vegetable');
+        console.log(vegetables)
+        vegetables.forEach((element)=>{
+            const cards = document.createElement('div');
+            cards.setAttribute('class','card');
+            cards.innerHTML=`
+            <i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i>
+            <p>${element.name}</p>
+            `;
+            container.append(cards)
+         })
+    }else if(opzione === 'users'){
+        container.innerHTML+='';
+        const users = icon.filter((element)=> element.type === 'user');
+        console.log(users)
+        users.forEach((element)=>{
+            const cards = document.createElement('div');
+            cards.setAttribute('class','card');
+            cards.innerHTML=`
+            <i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i>
+            <p>${element.name}</p>
+            `;
+            container.append(cards)
+         })
+    }else{
+        icon.forEach((element)=>{
+            container.innerHTML+='';
+            const cards = document.createElement('div');
+            cards.setAttribute('class','card');
+            cards.innerHTML=`
+            <i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i>
+            <p>${element.name}</p>
+            `;
+            container.append(cards)
+         })
+    }
+   
 }
 
 
 selezione.addEventListener('change', selezionaIcone);
+
+// filtro le icone per tipo 
+
